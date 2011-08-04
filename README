@@ -1,0 +1,16 @@
+The org.roettig.maths library is a small helper library
+providing some statistical helper methods and helpers for
+matrix operations and analysis.
+
+To build the jar from source issue
+
+java -f build.xml build
+
+in the root directory.
+
+To build documentation from source issue
+
+java -f build.xml javadoc
+
+and the javadoc html files will end up in the doc-folder.
+
