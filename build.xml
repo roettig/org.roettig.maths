@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Maths" default="build" basedir=".">
+
+ <target name="prepare">
+   <mkdir dir="bin/"/>
+   <mkdir dir="build/"/>
+ </target>
+
+ <target name="compile" depends="prepare">
+      <javac srcdir="src/" destdir="bin/" includeantruntime="false" classpath="lib/Jama-1.0.2.jar:lib/junit.jar"/>
+ </target>
+
+ <target name="build" depends="compile">
+      <jar jarfile="build/org.roettig.maths.jar" basedir="bin"/>
+ </target>
+	
+ <target name="javadoc">
+      <javadoc access="public" author="true" classpath="lib/Jama-1.0.2.jar:lib/junit.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="org.roettig.maths.util,org.roettig.maths.matrix,org.roettig.maths.multimin,org.roettig.maths.test,org.roettig.maths.statistics,org.roettig.maths.mva" source="1.6" sourcepath="src" splitindex="true" use="true" version="true"/>
+ </target>
+	
+ <target name="clean">
+  <delete dir="build"/>
+  <delete dir="bin"/>
+ </target>
+	
+</project> 
