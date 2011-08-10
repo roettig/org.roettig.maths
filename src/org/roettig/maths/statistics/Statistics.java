@@ -682,6 +682,27 @@ public class Statistics
 		return F;
 	}
 
+	/** 
+	 * computes FMeasure based upon predicted/true values  
+	 *  
+	 * @param yp : predicted values
+	 * @param Yt : true values
+	 * 
+	 * @return F-measure
+	 * 
+	 */
+	public static double calcFMeasure(Object pos, Collection<? extends Object> yp, Collection<? extends Object> yt)
+	{
+		double F = 0.0;
+		List<Double> precrec = calcPrecRec(pos, yp,yt);
+		double prec = precrec.get(0);
+		double rec  = precrec.get(1);
+		if((prec+rec)>0)
+			F = 2.0*(prec*rec)/(prec+rec);
+		else
+			F = 0.0;
+		return F;
+	}
 	public static <T extends Comparable<T>> List< Pair<Integer,T> > sort(Collection<T> toSort, boolean ascending)
 	{
 		List< Pair<Integer,T> > data = new ArrayList< Pair<Integer,T> >();
