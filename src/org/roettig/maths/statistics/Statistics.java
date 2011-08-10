@@ -675,7 +675,10 @@ public class Statistics
 		List<Double> precrec = calcPrecRec(yp,yt);
 		double prec = precrec.get(0);
 		double rec  = precrec.get(1);
-		F = 2.0*(prec*rec)/(prec+rec);
+		if((prec+rec)>0)
+			F = 2.0*(prec*rec)/(prec+rec);
+		else
+			F = 0.0;
 		return F;
 	}
 
